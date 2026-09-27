@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# challenge data and generated artefacts (multi-GB; regenerate with `python -m src.run_pipeline`)
+dataset/
+data/
+logs/
+output/
+*.parquet.tmp
+*_submission.zip
+
+# organisers' materials (ship with the challenge kit)
+CHALLENGE_README.md
+utils/
+
+# earlier model versions (only the final model is kept)
+models/lgbm_matcher_v*.txt
+models/matcher_config_v*.json

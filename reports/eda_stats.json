@@ -1,0 +1,195 @@
+{
+  "files": [
+    {
+      "file": "train/S1",
+      "records": "2,206,821",
+      "missing name": "0.00%",
+      "missing address": "0.00%",
+      "missing country": "0.00%",
+      "exact duplicate rows": "0",
+      "name chars (median / p95)": "24 / 37",
+      "name tokens (median / p95)": "4 / 5",
+      "address chars (median / p95)": "41 / 103"
+    },
+    {
+      "file": "train/S2",
+      "records": "5,034,616",
+      "missing name": "0.00%",
+      "missing address": "3.36%",
+      "missing country": "0.00%",
+      "exact duplicate rows": "25,873",
+      "name chars (median / p95)": "25 / 40",
+      "name tokens (median / p95)": "4 / 5",
+      "address chars (median / p95)": "37 / 96"
+    },
+    {
+      "file": "train/S3",
+      "records": "5,285,603",
+      "missing name": "0.00%",
+      "missing address": "3.33%",
+      "missing country": "0.00%",
+      "exact duplicate rows": "18,860",
+      "name chars (median / p95)": "25 / 42",
+      "name tokens (median / p95)": "4 / 6",
+      "address chars (median / p95)": "42 / 91"
+    },
+    {
+      "file": "test/S1",
+      "records": "1,732,544",
+      "missing name": "0.00%",
+      "missing address": "0.00%",
+      "missing country": "0.00%",
+      "exact duplicate rows": "0",
+      "name chars (median / p95)": "24 / 36",
+      "name tokens (median / p95)": "4 / 5",
+      "address chars (median / p95)": "50 / 105"
+    },
+    {
+      "file": "test/S2",
+      "records": "4,887,273",
+      "missing name": "0.00%",
+      "missing address": "2.65%",
+      "missing country": "0.00%",
+      "exact duplicate rows": "22,641",
+      "name chars (median / p95)": "25 / 42",
+      "name tokens (median / p95)": "4 / 5",
+      "address chars (median / p95)": "43 / 99"
+    },
+    {
+      "file": "test/S3",
+      "records": "5,082,316",
+      "missing name": "0.00%",
+      "missing address": "2.68%",
+      "missing country": "0.00%",
+      "exact duplicate rows": "16,293",
+      "name chars (median / p95)": "25 / 42",
+      "name tokens (median / p95)": "4 / 6",
+      "address chars (median / p95)": "43 / 94"
+    }
+  ],
+  "countries": {
+    "train/S1": {
+      "US": 1323633,
+      "India": 883188
+    },
+    "train/S2": {
+      "US": 3016817,
+      "India": 2017799
+    },
+    "train/S3": {
+      "US": 3170056,
+      "India": 2115547
+    },
+    "test/S1": {
+      "India": 809986,
+      "US": 663106,
+      "France": 259452
+    },
+    "test/S2": {
+      "India": 2312565,
+      "US": 1871330,
+      "France": 703378
+    },
+    "test/S3": {
+      "India": 2405000,
+      "US": 1945701,
+      "France": 731615
+    }
+  },
+  "ground_truth": {
+    "source1_entities": 2206821,
+    "singletons (0 matches)": 123247,
+    "exactly 1 match": 119157,
+    "2+ matches": 1964417,
+    "mean matches / entity": 3.461,
+    "max matches / entity": 11,
+    "total matched pairs": 7638365,
+    "pairs to S2": 3693619,
+    "pairs to S3": 3944746,
+    "entities with S2 match only": 143029,
+    "entities with S3 match only": 164498,
+    "entities with both S2 and S3": 1776047,
+    "S2/S3 ids matched to >1 S1 entity": 0
+  },
+  "matches_hist": {
+    "0": 123247,
+    "1": 119157,
+    "2": 375212,
+    "3": 530841,
+    "4": 484115,
+    "5": 321957,
+    "6": 164868,
+    "7": 63968,
+    "8": 18680,
+    "9": 4205,
+    "10": 571
+  },
+  "unmatched": {
+    "S2": {
+      "records": 5034616,
+      "matched to some S1": 3693619
+    },
+    "S3": {
+      "records": 5285603,
+      "matched to some S1": 3944746
+    }
+  },
+  "normalisation_effect": {
+    "matches: all": {
+      "name exact (raw, lower-cased)": 0.10738919961064564,
+      "name exact (name_norm)": 0.4206647083241129,
+      "name exact (name_core)": 0.6928830013262925,
+      "name exact (name_phonetic)": 0.7121250909385436,
+      "name token Jaccard (raw)": 0.6163164265525458,
+      "name token Jaccard (name_norm)": 0.792592945620277,
+      "address token Jaccard (raw)": 0.5963022325710993,
+      "address token Jaccard (address_norm)": 0.7915421332105127,
+      "state agrees (when both parsed)": 0.9940992112973199,
+      "house no. agrees (when both parsed)": 0.7914718891452418,
+      "state parsed on S2/S3 side": 0.9548481995253116,
+      "S2/S3 name brand-only (name_known_ratio = 0)": 0.021998811109616562
+    },
+    "matches: S1-S2": {
+      "name exact (raw, lower-cased)": 0.11013873555274314,
+      "name exact (name_norm)": 0.4223251444351695,
+      "name exact (name_core)": 0.7078205922215939,
+      "name exact (name_phonetic)": 0.7277677548297146,
+      "name token Jaccard (raw)": 0.6083413024118992,
+      "name token Jaccard (name_norm)": 0.7999097553668016,
+      "address token Jaccard (raw)": 0.6776804407709884,
+      "address token Jaccard (address_norm)": 0.7943764259141152,
+      "state agrees (when both parsed)": 0.9939954452562122,
+      "house no. agrees (when both parsed)": 0.7892321668717274,
+      "state parsed on S2/S3 side": 0.9531494496354339,
+      "S2/S3 name brand-only (name_known_ratio = 0)": 0.01918721371019618
+    },
+    "matches: S1-S3": {
+      "name exact (raw, lower-cased)": 0.10481622093804596,
+      "name exact (name_norm)": 0.41911089459302064,
+      "name exact (name_core)": 0.6789046051157999,
+      "name exact (name_phonetic)": 0.6974868969224567,
+      "name token Jaccard (raw)": 0.6237794402237054,
+      "name token Jaccard (name_norm)": 0.7857459736854728,
+      "address token Jaccard (raw)": 0.520149602264707,
+      "address token Jaccard (address_norm)": 0.7888898403029648,
+      "state agrees (when both parsed)": 0.994195998479764,
+      "house no. agrees (when both parsed)": 0.7935538998108195,
+      "state parsed on S2/S3 side": 0.9564378667741791,
+      "S2/S3 name brand-only (name_known_ratio = 0)": 0.024629866057429558
+    },
+    "random non-matches (same country)": {
+      "name exact (raw, lower-cased)": 2.8927066188020143e-06,
+      "name exact (name_norm)": 1.012447316580705e-05,
+      "name exact (name_core)": 2.4588006259817123e-05,
+      "name exact (name_phonetic)": 3.4712479425624176e-05,
+      "name token Jaccard (raw)": 0.029732590366889248,
+      "name token Jaccard (name_norm)": 0.059828377682963736,
+      "address token Jaccard (raw)": 0.01485232646799626,
+      "address token Jaccard (address_norm)": 0.019085650798886654,
+      "state agrees (when both parsed)": 0.06813331219396186,
+      "house no. agrees (when both parsed)": 0.0011127911366908554,
+      "state parsed on S2/S3 side": 0.9548491887404288,
+      "S2/S3 name brand-only (name_known_ratio = 0)": 0.02199903383598932
+    }
+  }
+}

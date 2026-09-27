@@ -1,0 +1,8 @@
+# Python 3.12
+pandas==3.0.6
+numpy==2.5.3
+pyarrow==25.0.1
+lightgbm==4.7.0      # matcher model (MIT licence); on macOS needs the OpenMP runtime: `brew install libomp`
+rapidfuzz==3.14.6    # string similarities (MIT licence)
+matplotlib==3.11.2   # EDA figures only
+pytest==9.1.1
