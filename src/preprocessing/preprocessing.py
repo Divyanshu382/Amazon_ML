@@ -50,8 +50,8 @@ SCHEMA = pa.schema([(c, pa.bool_() if c in _BOOL_COLUMNS else pa.float32() if c 
 
 def preprocess_record(entity_id: str, business_name: str, business_address: str, country: str) -> dict:
     """One raw record -> the standard record dict (see module docstring)."""
-    name = parse_name(business_name)
     country_norm = normalize_country(country)
+    name = parse_name(business_name, country_norm)
     addr = parse_address(business_address, country_norm)
     return {
         "entity_id": entity_id,

@@ -261,13 +261,21 @@ def split_alias(name: str) -> tuple[str, str]:
     return name, ""
 
 
-def parse_name(name: str) -> NameParts:
+def _localise(tokens: list[str], country: str) -> list[str]:
+    """Country-specific token rules: French "et" is the "&" that the other copies spell "and"."""
+    if country == "france":
+        tokens = _dedupe_consecutive(["and" if t == "et" else t for t in tokens])
+    return tokens
+
+
+def parse_name(name: str, country: str = "") -> NameParts:
     raw = clean_unicode(name or "")
     if not raw:
         return NameParts()
     main, alt = split_alias(raw)
     tokens, is_domain = _basic_tokens(main)
-    alt_tokens = _basic_tokens(alt)[0] if alt else []
+    tokens = _localise(tokens, country)
+    alt_tokens = _localise(_basic_tokens(alt)[0], country) if alt else []
     core = _core(tokens)
     return NameParts(
         name_norm=" ".join(tokens),

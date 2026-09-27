@@ -149,7 +149,7 @@ _ANY_COUNTRY_STATES = {k: f"{c}:{v}" for c, m in STATE_MAPS.items() for k, v in 
 
 # "delhi" is both a state and a city: keep it as a state only when it is the
 # last address component (handled by the address parser).
-AMBIGUOUS_STATE_CITY = {"delhi", "new delhi", "paris", "nord", "var", "manche", "loire", "rhone"}
+AMBIGUOUS_STATE_CITY = {"delhi", "new delhi", "paris", "var", "manche", "loire", "rhone"}
 
 
 def canonical_state(component: str, country: str) -> str:

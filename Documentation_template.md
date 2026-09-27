@@ -214,11 +214,11 @@ Full report: `reports/error_analysis.md` (held-out group, 46,818 entities, 162,5
 | v2 | normalisation, blocking and feature improvements | 0.9860 | 0.97855 |
 | v3 | further normalisation and feature improvements | 0.98636 | 0.97960 |
 | v5 | same-street word statistics per split + expected-F rule | 0.98674 | 0.97806 |
-| v6/v7 | one joint word-statistics table, threshold rule; France region fill and acronyms | 0.98695 | pending |
+| v7 | one joint word-statistics table, threshold rule; France region fill and acronyms | 0.98695 | **0.98340** |
 
-The leaderboard sits about 0.007 below validation. France has no labels, but it shows about twice
-the US share of candidate records with an uncertain probability. We believe it accounts for most
-of that gap.
+Up to v5 the leaderboard sat about 0.007 below validation. France has no labels, but it showed about
+twice the US share of candidate records with an uncertain probability. Making French records look
+like the training countries (region fill, French acronyms) halved the gap in v7.
 
 **Where the true pairs go:**
 - 96.6% found;

@@ -6,7 +6,7 @@ Amazon ML Challenge 2026. Raw challenge TSVs -> `output/matching_results.tsv` + 
 |---|---|
 | Validation (46,818 held-out training entities) | **0.98695** (India 0.9874, US 0.9867) |
 | Precision / recall / singletons left empty | 0.9968 / 0.9664 / 98.9% |
-| Public leaderboard, best so far (v3) | 0.97960 |
+| Public leaderboard, best so far (v7) | **0.98340** |
 
 The official validator reports PASS on the test outputs. The methodology is in
 [`Documentation_template.md`](Documentation_template.md).

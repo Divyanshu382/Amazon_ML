@@ -59,8 +59,12 @@ COUNTRY_ABBREV = {
                "crs": "cours", "fg": "faubourg", "fbg": "faubourg", "qu": "quai", "st": "saint",
                "ste": "sainte", "pl": "place", "av": "avenue", "sq": "square", "res": "residence",
                "resid": "residence", "lot": "lotissement", "za": "zone artisanale",
-               "zi": "zone industrielle", "zac": "zone amenagement concerte", "ter": "ter", "bis": "bis"},
+               "zi": "zone industrielle", "zac": "zone amenagement concerte", "ter": "ter", "bis": "bis",
+               "q": "quai", "psg": "passage", "pass": "passage", "appt": "appartement", "app": "appartement",
+               "apt": "appartement", "appart": "appartement", "apartment": "appartement"},
 }
+# French house-number suffixes written as one letter after the number ("10 B", "17 T").
+_FR_NUMBER_SUFFIX = {"b": "bis", "t": "ter"}
 # After "st", these mean the "st" was "street" ("Main St Apt 4", "Elm St N").
 _AFTER_STREET = {"apt", "apartment", "suite", "ste", "unit", "fl", "floor", "rm", "room", "bldg",
                  "building", "north", "south", "east", "west", "n", "s", "e", "w", "ne", "nw",
@@ -162,7 +166,9 @@ def _expand(tokens: list[str], country: str) -> list[str]:
     local = COUNTRY_ABBREV.get(country, {})
     out = []
     for k, t in enumerate(tokens):
-        if t == "st" and country != "france":
+        if country == "france" and t in _FR_NUMBER_SUFFIX and k and tokens[k - 1].isdigit():
+            t = _FR_NUMBER_SUFFIX[t]                  # "10 B Rue ..." -> "10 bis rue ..."
+        elif t == "st" and country != "france":
             # "St Louis", "123 St Marks Pl" -> saint; "Main St", "Main St Apt 4" -> street
             nxt = tokens[k + 1] if k + 1 < len(tokens) else ""
             t = "saint" if nxt and not nxt[0].isdigit() and nxt not in _AFTER_STREET else "street"
