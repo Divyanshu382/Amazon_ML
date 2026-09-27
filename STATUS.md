@@ -40,9 +40,10 @@ acronym rule existed; US/India are unaffected by the new rules.
 2. **Full run:** `python -m src.run_pipeline`. It preprocesses, blocks, retrains, scores and writes
    `output/`. With more RAM, try a larger `FIT_ENTITIES` in `src/matching/train_model.py` (700k now;
    train has ~2.2M S1 entities). LightGBM runs on CPU; a GPU is not needed.
-3. **Optional:** `PYTHONPATH=. python experiments/second_model_blend.py` trains a second LightGBM on
-   the saved features and reports whether blending it with the main model helps on validation. If it
-   helps, wire it into `src/matching/predict.py` (`EXTRA_MODELS`) and the decision rule.
+3. **Already tried, no gain (skip):**
+   - `experiments/second_model_blend.py`: a second LightGBM (511 leaves, feature fraction 0.5) blended
+     with the main model scored 0.98685–0.98693 against 0.98695 for the main model alone.
+   - The French rules added after v7 change only 0.08% of French pairs (687 removed, 715 added).
 4. **Before uploading, compare against v7.**
    - Load `output/matching_results_v7.tsv` and the new file, and count per country the share of v7
      pairs removed and added.
